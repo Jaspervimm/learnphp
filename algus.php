@@ -1,40 +1,27 @@
 <?php
 
-class Box {
-    public $width;
-    public $height;
-    public $lenght;
-    public $material;
+// library
 
-    public function describe (){
-        echo ' $width: ' . $this->width . ' height: ' . $this->height . ' lenght: ' . $this->lenght;
-    }
-}
-
-    class MetalBox extends Box {
-    public $material = 'Metal';
-    public $weight;
-
-    public function volume(){
-        return $this->width * $this->height * $this->lenght;
-    }
-}
-
-class Animal {
-    use HasSmell;
-}
-
-trait HasSmell {
-    public$smell;
-    public function sniff(){
-        if($this->smell !== 'Bad'){
-            return 'Fine';
+class Job {
+    public function task ($logger){
+        for($i = 0; $i<10; $i++){
+            $logger ->log("task done! # $i");
         }
-        return 'Bad';
     }
 }
 
-$metalBox1 = new MetalBox();
-var_dump($metalBox1);
-$metalBox1 = new MetalBox();
-var_dump($metalBox1);
+class ConsoleLogger {
+    public function log($message){
+        echo $message . "\n";
+    }
+}
+
+// usage code
+class NothingLogger{
+    public function log ($message)
+    
+}
+
+
+$job = new Job();
+$job->task();
