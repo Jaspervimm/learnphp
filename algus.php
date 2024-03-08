@@ -20,6 +20,20 @@ class Box {
     }
 }
 
+class Animal {
+    use HasSmell;
+}
+
+trait HasSmell {
+    public$smell;
+    public function sniff(){
+        if($this->smell !== 'Bad'){
+            return 'Fine';
+        }
+        return 'Bad';
+    }
+}
+
 $metalBox1 = new MetalBox();
 var_dump($metalBox1);
 $metalBox1 = new MetalBox();
