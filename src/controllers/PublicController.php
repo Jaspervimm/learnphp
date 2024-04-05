@@ -5,7 +5,7 @@ namespace App\Controllers;
 class PublicController {
 
     public function index(){
-        $name = 'Jasper';
+        $name = $_GET['name'] ?? 'Nameless';
         $fruits = ['Apple', 'Banana', 'Cherry', 'Pear'];
         include 'views/index.php';
     }
